@@ -1,0 +1,58 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAnRqJj4W_JPkit0vayzyZyBqxoylAeabU",
+  authDomain: "student-feedback-b38e9.firebaseapp.com",
+  databaseURL: "https://student-feedback-b38e9-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "student-feedback-b38e9",
+  storageBucket: "student-feedback-b38e9.firebasestorage.app",
+  messagingSenderId: "135334341122",
+  appId: "1:135334341122:web:f3951e42e1ddecbe41151b",
+  measurementId: "G-TGXRF8TGTK"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+window.submitAllFeedback = function(){
+
+    let branch = document.getElementById("branch").value;
+    let section = document.getElementById("section").value;
+
+    if(branch === "" || section === ""){
+        alert("Select Branch and Section ");
+        return;
+    }
+
+    let feedbackList = [];
+
+    document.querySelectorAll(".subject-box").forEach(box=>{
+        let subject = box.querySelector("h3").innerText;
+        let rating = box.querySelector(".rating").value;
+
+        if(rating === ""){
+            alert("Select rating for all subjects ");
+            feedbackList = [];
+            return;
+        }
+
+        feedbackList.push({
+            subject: subject,
+            rating: rating
+        });
+    });
+
+    if(feedbackList.length === 0) return;
+
+    push(ref(database,"feedbacks"),{
+        branch: branch,
+        section: section,
+        feedbacks: feedbackList,
+        timestamp: new Date().toISOString()
+    });
+
+    alert("Feedback Submitted ");
+
+    document.querySelectorAll(".rating").forEach(r=>r.value="");
+}
