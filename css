@@ -1,0 +1,103 @@
+/* Background */
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    text-align:center;
+    color:white;
+    margin:0;
+    padding:0;
+}
+
+/* Title */
+h2{
+    margin-top:20px;
+    font-size:32px;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Main Form Box */
+.form-box{
+    width:80%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    margin-left: 9%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+h4{
+  margin-left: 48% auto;
+  margin-right: 12% auto;
+}
+.form-box label{
+  margin-left: 25%;
+  margin-top: 5px;
+}
+/* Select boxes */
+select{
+    padding: 5px;
+    width:110px;
+    border-radius:10px;
+    border:none;
+    margin: 5px;
+    font-size:10px;
+    outline:none;
+}
+
+/* Subject Containers */
+.subject-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* Subject Cards */
+.subject-box{
+    width:150px;
+    margin:15px;
+    padding:20px;
+    background:rgba(255,255,255,0.15);
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.subject-box:hover{
+    transform:translateY(-8px);
+}
+
+/* Subject Title */
+.subject-box h3{
+    font-size:18px;
+}
+
+/* Rating dropdown */
+.rating{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    margin-top:10px;
+}
+
+/* Submit Button */
+button{
+    margin-top:30px auto;
+    margin-left: 40%;
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff512f,#dd2476);
+    color:white;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:linear-gradient(45deg,#dd2476,#ff512f);
+}
